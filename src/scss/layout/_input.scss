@@ -1,0 +1,54 @@
+@use '../abstracts' as *;
+@use '../core' as *;
+// Input
+
+.todo__input {
+  height: $todo-height;
+  background: var(--todo-color);
+  border-radius: $radius;
+  padding: $spacing-sml;
+  margin: {
+    top: $spacing;
+    bottom: $spacing / 2;
+  }
+  box-shadow: $box-shadow;
+  @include flex;
+  &-placeholder {
+    width: $circle-dims;
+    height: $circle-dims;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    margin-left: $spacing-sml;
+    position: absolute;
+
+    //? disappear on type (Js)
+    // display: none;
+  }
+  &-icon {
+    $padding: $circle-dims / 3.5;
+    border-radius: 50%;
+    padding: $padding / 1.425 $padding;
+    margin-left: $spacing-sml;
+    color: white;
+    border: 2px solid transparent;
+    background: $trash-color;
+    cursor: pointer;
+    transition: transform $snap-transition, opacity $snap-transition, color 0.25s, background 0.25s,
+      border-color 0.25s;
+
+    //? animations on type (Js)
+    transform: translateX(-100px);
+    opacity: 0;
+    pointer-events: none;
+
+    &:hover {
+      color: $trash-color;
+      border-color: white;
+    }
+  }
+  &-area {
+    flex-grow: 1;
+    @include input-reset;
+    margin-left: 1.5rem;
+  }
+}

@@ -1,0 +1,17 @@
+@use './abstracts' as *;
+
+// Link all the layout/files
+@use './layout/background';
+@use './layout/header';
+@use './layout/input';
+@use './layout/todos';
+
+body {
+  position: relative;
+  background: var(--bg-color);
+  @include flex(row, center);
+}
+.wrapper {
+  width: $fixed-width;
+  padding: 5rem;
+}

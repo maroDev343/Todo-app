@@ -1,0 +1,52 @@
+// Variables
+// # Colors
+$bright-blue: hsl(220, 98%, 61%);
+$trash-color: rgba(235, 43, 43, 0.795);
+$strike-color: rgba(255, 255, 255, 0.25);
+$check__gradient: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+// # Typography
+$font__size: 18px;
+$font__family: 'Josefin Sans', sans-serif;
+$fw-med: 400;
+$fw-lrg: 700;
+
+// # Others
+$fixed-width: 50rem;
+$todo-height: 4.25rem;
+$circle-dims: 1.5rem;
+$radius: 0.35rem;
+$spacing: 3rem;
+$spacing-sml: 1rem;
+$float-margin: 4.5rem;
+$box-shadow: 0px 10px 35px -8px rgba(0, 0, 0, 0.55);
+
+// transitions
+$duration-1: 540ms;
+$duration-2: 250ms;
+$snap-effect: cubic-bezier(0.61, -0.25, 0, 1.03);
+$snap-transition: $duration-1 $snap-effect;
+
+// # Breakpoints
+$break-1: 800px;
+$break-2: 550px;
+
+// # Custom Prop
+:root {
+}
+// Light theme
+:root.lightTheme {
+  --bg-color: hsl(0, 0%, 98%);
+  --todo-color: white;
+  --accent-color: hsl(236, 9%, 61%);
+  --border-color: hsl(236, 33%, 92%);
+  --text-color: hsl(235, 19%, 35%);
+}
+// Dark theme
+:root.darkTheme {
+  --bg-color: hsl(235, 21%, 11%);
+  --todo-color: hsl(235, 24%, 19%);
+  --accent-color: hsl(233, 14%, 35%);
+  --border-color: hsl(237, 14%, 26%);
+  --text-color: hsl(236, 33%, 92%);
+}

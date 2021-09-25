@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" trashorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- External files -->
+    <script type="module" src="/src/scss/style.js"></script>
+    <script type="module" src="/src/js/Todo.js"></script>
+  </head>
+  <body>
+    <img src="/images/bg-desktop-dark.jpg" class="background" />
+    <section class="wrapper">
+      <div class="header">
+        <h1 class="logo">Todo</h1>
+        <img src="/images/icon-sun.svg" class="mode__switcher" />
+      </div>
+      <div class="todo__input">
+        <div class="todo__input-placeholder"></div>
+        <i class="fas fa-times todo__input-icon"></i>
+        <input class="todo__input-area" placeholder="Create a new todo..." />
+      </div>
+      <div class="todo">
+        <ul class="todo__list">
+          <li class="todo-item">
+            <div class="check-box">
+              <img src="/images/icon-check.svg" class="check-icon" />
+            </div>
+            <h2 class="content">I am a new todo</h2>
+            <i class="fas fa-trash remove-icon"></i>
+          </li>
+        </ul>
+        <div class="todo__options">
+          <h4><span class="items-left">5</span> items left</h4>
+          <h4 class="clear-box">Clear Completed</h4>
+          <div class="filter-items">
+            <h4 class="all filtered">All</h4>
+            <h4 class="active">Active</h4>
+            <h4 class="completed">Completed</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

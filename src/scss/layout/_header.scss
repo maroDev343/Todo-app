@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+@use '../core' as *;
+// Header
+
+.header {
+  @include flex;
+  .logo {
+  }
+
+  .mode__switcher {
+    width: $circle-dims;
+    height: $circle-dims;
+    cursor: pointer;
+  }
+}
