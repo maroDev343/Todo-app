@@ -11,6 +11,11 @@
   font: inherit;
   background: inherit;
 }
+@mixin image-reset {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 @mixin flex($dir: row, $just: space-between, $align: center) {
   display: flex;
   flex-direction: $dir;

@@ -11,5 +11,11 @@
     width: $circle-dims;
     height: $circle-dims;
     cursor: pointer;
+    background-image: url('/images/icon-moon.svg');
+    @include image-reset;
   }
+}
+html.darkTheme .mode__switcher {
+  background-image: url('/images/icon-sun.svg');
+  @include image-reset;
 }

@@ -14,8 +14,8 @@
       @include flex;
 
       // ? animations on todo-add (Js)
-      transform: translateX(150px);
-      opacity: 0;
+      // transform: translateX(150px);
+      // opacity: 0;
 
       &:not(:last-child) {
         border-bottom: 1px solid var(--border-color);
@@ -64,9 +64,9 @@
           background 0.25s, border-color 0.25s;
 
         //? animations on todo-item hover
-        transform: translateX(100px) skewY(25deg);
-        opacity: 0;
-        pointer-events: none;
+        // transform: translateX(100px) skewY(25deg);
+        // opacity: 0;
+        // pointer-events: none;
 
         &:hover {
           color: $trash-color;
@@ -102,9 +102,9 @@
     transition: all $snap-transition;
 
     //? animations if there is todos (Js)
-    transform: translateY(150px) skewX(15deg);
-    opacity: 0;
-    pointer-events: none;
+    // transform: translateY(150px) skewX(15deg);
+    // opacity: 0;
+    // pointer-events: none;
 
     .clear-box {
       cursor: pointer;

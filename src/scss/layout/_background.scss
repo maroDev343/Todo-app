@@ -6,7 +6,21 @@
   width: 100%;
   height: 18rem;
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0rem;
   z-index: -10;
+  background-image: url('/images/bg-desktop-light.jpg');
+  @include image-reset;
+  @media (max-width: $break-1) {
+    & {
+      background-image: url('/images/bg-mobile-light.jpg');
+    }
+  }
+}
+html.darkTheme .background {
+  background-image: url('/images/bg-desktop-dark.jpg');
+}
+@media (max-width: $break-1) {
+  html.darkTheme .background {
+    background-image: url('/images/bg-mobile-dark.jpg');
+  }
 }

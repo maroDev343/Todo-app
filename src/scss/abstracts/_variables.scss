@@ -23,21 +23,21 @@ $box-shadow: 0px 10px 35px -8px rgba(0, 0, 0, 0.55);
 
 // transitions
 $duration-1: 540ms;
-$duration-2: 250ms;
+$calm-effect: cubic-bezier(0.53, 0.04, 0.52, 0.98);
 $snap-effect: cubic-bezier(0.61, -0.25, 0, 1.03);
+
 $snap-transition: $duration-1 $snap-effect;
+$calm-transition: $duration-1 $calm-effect;
 
 // # Breakpoints
 $break-1: 800px;
 $break-2: 550px;
 
 // # Custom Prop
-:root {
-}
 // Light theme
-:root.lightTheme {
+:root {
   --bg-color: hsl(0, 0%, 98%);
-  --todo-color: white;
+  --todo-color: hsl(0, 0%, 100%);
   --accent-color: hsl(236, 9%, 61%);
   --border-color: hsl(236, 33%, 92%);
   --text-color: hsl(235, 19%, 35%);

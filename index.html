@@ -19,14 +19,15 @@
     />
     <!-- External files -->
     <script type="module" src="/src/scss/style.js"></script>
+    <script type="module" src="/src/js/theme.js"></script>
     <script type="module" src="/src/js/Todo.js"></script>
   </head>
   <body>
-    <img src="/images/bg-desktop-dark.jpg" class="background" />
+    <section class="background"></section>
     <section class="wrapper">
       <div class="header">
         <h1 class="logo">Todo</h1>
-        <img src="/images/icon-sun.svg" class="mode__switcher" />
+        <div class="mode__switcher"></div>
       </div>
       <div class="todo__input">
         <div class="todo__input-placeholder"></div>
@@ -35,13 +36,13 @@
       </div>
       <div class="todo">
         <ul class="todo__list">
-          <li class="todo-item">
+          <!-- <li class="todo-item">
             <div class="check-box">
               <img src="/images/icon-check.svg" class="check-icon" />
             </div>
             <h2 class="content">I am a new todo</h2>
             <i class="fas fa-trash remove-icon"></i>
-          </li>
+          </li> -->
         </ul>
         <div class="todo__options">
           <h4><span class="items-left">5</span> items left</h4>

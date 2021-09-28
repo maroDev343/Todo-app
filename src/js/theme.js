@@ -1,23 +1,19 @@
-const mobileBreak = 800;
-const mq = window.matchMedia(`(max-width: ${mobileBreak}px)`);
-let mobileMode;
+// Variables
+const modeSwitcher = document.querySelector('.mode__switcher');
+const isLightModeByDefault = window.matchMedia(`(prefers-color-scheme: light)`);
+const root = document.documentElement;
 
-//! currentMode must be got from checking the switch and prefers custom mode media query! images can be changed if html.lightTheme {background-image: kza;}
-const changeImages = () => {};
-const changeImagesSize = () => {
-  const backgroundImage = document.querySelector('.background');
-  const desktopSrc = `/images/bg-desktop${currentMode}.svg`;
-  backgroundImage.src = '';
-};
-const checkWindowSize = () => {
-  if (mq.matches) {
-    mobileMode = true;
-    changeImagesSize();
-  } else mobileMode = false;
+// Functions
+const checkSystemPreference = () =>
+  isLightModeByDefault.matches
+    ? root.classList.remove('darkTheme')
+    : root.classList.add('darkTheme');
+const switchTheme = () => {
+  root.classList.contains('darkTheme')
+    ? root.classList.remove('darkTheme')
+    : root.classList.add('darkTheme');
 };
 
-window.addEventListener('resize', checkWindowSize);
-window.addEventListener('DOMContentLoaded', checkWindowSize);
-
-//? check mode => images change
-//? check mobile => images size
+// EventListeners
+window.addEventListener('DOMContentLoaded', checkSystemPreference);
+modeSwitcher.addEventListener('click', switchTheme);
