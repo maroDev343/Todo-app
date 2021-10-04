@@ -5,17 +5,19 @@
 .todo {
   &__list {
     @include list-reset;
-    box-shadow: $box-shadow;
+    // box-shadow: $box-shadow;
+    transition: all $calm-transition;
 
     .todo-item {
       height: $todo-height;
       background: var(--todo-color);
       padding: 0 $spacing-sml;
+      transition: all $snap-transition;
       @include flex;
 
       // ? animations on todo-add (Js)
-      // transform: translateX(150px);
-      // opacity: 0;
+      transform: translateX(250px);
+      opacity: 0;
 
       &:not(:last-child) {
         border-bottom: 1px solid var(--border-color);
@@ -23,12 +25,10 @@
       &:first-child {
         border-radius: $radius $radius 0 0;
       }
-      &:hover {
-        & > .remove-icon {
-          transform: translateX(0) skewY(0);
-          opacity: 1;
-          pointer-events: all;
-        }
+      &:hover > .remove-icon {
+        transform: translateX(0) skewY(0);
+        opacity: 1;
+        pointer-events: all;
       }
       .check-box {
         width: $circle-dims;
@@ -64,9 +64,9 @@
           background 0.25s, border-color 0.25s;
 
         //? animations on todo-item hover
-        // transform: translateX(100px) skewY(25deg);
-        // opacity: 0;
-        // pointer-events: none;
+        transform: translateX(100px) skewY(25deg);
+        opacity: 0;
+        pointer-events: none;
 
         &:hover {
           color: $trash-color;
