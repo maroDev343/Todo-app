@@ -1,7 +1,9 @@
 // Variables
 const todoList = document.querySelector('.todo__list');
 const options = document.querySelector('.todo__options');
+const removeBtn = document.querySelectorAll('.remove-icon');
 const database = [];
+const duration = 450;
 
 // Functions
 const createItem = content => {
@@ -18,20 +20,18 @@ const save = data => {
 };
 const read = () => {
   const todos = localStorage.getItem('todo-list');
-  if (!todos) return { content: 'Try me😊', completed: true }; // { content: 'Try me😊', completed: true }
+  if (!todos || todos === '[]') return [{ content: 'Try me😊', completed: true }];
   return JSON.parse(todos);
 };
 const animationIn = item => {
   setTimeout(() => {
     item.style.transform = 'translateX(0px)';
     item.style.opacity = 1;
-  }, 650);
+  }, duration);
 };
 const animationOut = item => {
-  setTimeout(() => {
-    item.style.transform = 'translateX(-250px)';
-    item.style.opacity = 0;
-  }, 650);
+  item.style.transform = 'translateX(-250px)';
+  item.style.opacity = 0;
 };
 const renderItem = item => {
   const todoHTML = `
@@ -39,16 +39,30 @@ const renderItem = item => {
         <img src="/images/icon-check.svg" class="check-icon" />
       </div>
       <h2 class="content">${item.content}</h2>
-      <i class="fas fa-trash remove-icon"></i>
     `;
+  const removeIcon = document.createElement('i');
+  removeIcon.classList.add('fas', 'fa-trash', 'remove-icon');
 
   const newTodo = document.createElement('li');
   newTodo.classList.add('todo-item');
   newTodo.dataset.completed = item.completed;
   newTodo.innerHTML = todoHTML;
+  newTodo.appendChild(removeIcon);
 
   todoList.appendChild(newTodo);
   animationIn(newTodo);
+
+  removeIcon.addEventListener('click', () => removeItem(item, newTodo));
+};
+const removeItem = (item, todo) => {
+  const index = database.findIndex(databaseItem => item.content == databaseItem.content);
+  database.splice(index, 1);
+  localStorage.setItem('todo-list', JSON.stringify(database));
+
+  animationOut(todo);
+  setTimeout(() => {
+    todo.parentNode.removeChild(todo);
+  }, duration);
 };
 const loadData = () => {
   database.forEach(item => renderItem(item));
