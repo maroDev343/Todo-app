@@ -9,7 +9,7 @@ const duration = 450;
 const createItem = content => {
   const item = {
     content,
-    completed: false,
+    isCompleted: false,
   };
   save(item);
   renderItem(item);
@@ -20,7 +20,7 @@ const save = data => {
 };
 const read = () => {
   const todos = localStorage.getItem('todo-list');
-  if (!todos || todos === '[]') return [{ content: 'Try me😊', completed: true }];
+  if (!todos || todos === '[]') return [{ content: 'Try me😊', isCompleted: true }];
   return JSON.parse(todos);
 };
 const animationIn = item => {
@@ -39,20 +39,26 @@ const renderItem = item => {
         <img src="/images/icon-check.svg" class="check-icon" />
       </div>
       <h2 class="content">${item.content}</h2>
+      <i class="fas fa-trash remove-icon"></i>
     `;
-  const removeIcon = document.createElement('i');
-  removeIcon.classList.add('fas', 'fa-trash', 'remove-icon');
 
   const newTodo = document.createElement('li');
   newTodo.classList.add('todo-item');
-  newTodo.dataset.completed = item.completed;
+
+  const completedClass = item.isCompleted ? 'completed' : undefined;
+  if (completedClass !== undefined) newTodo.classList.add(completedClass);
   newTodo.innerHTML = todoHTML;
-  newTodo.appendChild(removeIcon);
 
   todoList.appendChild(newTodo);
   animationIn(newTodo);
 
-  removeIcon.addEventListener('click', () => removeItem(item, newTodo));
+  // RemoveIcon
+  newTodo.querySelector('.remove-icon').addEventListener('click', () => removeItem(item, newTodo));
+  // Checkbox
+  newTodo.querySelector('.check-box').addEventListener('click', () => {
+    console.log('ay');
+    // Todo
+  });
 };
 const removeItem = (item, todo) => {
   const index = database.findIndex(databaseItem => item.content == databaseItem.content);
