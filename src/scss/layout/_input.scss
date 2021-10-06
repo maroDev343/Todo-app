@@ -7,12 +7,14 @@
   background: var(--todo-color);
   border-radius: $radius;
   padding: $spacing-sml;
+  box-shadow: $box-shadow;
   margin: {
     top: $spacing;
     bottom: $spacing / 2;
   }
-  box-shadow: $box-shadow;
+  transition: all $snap-transition;
   @include flex;
+
   &-placeholder {
     width: $circle-dims;
     height: $circle-dims;
@@ -20,9 +22,7 @@
     border: 1px solid var(--border-color);
     margin-left: $spacing-sml;
     position: absolute;
-
-    //? disappear on type (Js)
-    // display: none;
+    transition: all $snap-transition;
   }
   &-icon {
     $padding: $circle-dims / 3.5;
@@ -37,7 +37,7 @@
       border-color 0.25s;
 
     //? animations on type (Js)
-    transform: translateX(-100px);
+    transform: translateX(-150px);
     opacity: 0;
     pointer-events: none;
 
@@ -49,6 +49,7 @@
   &-area {
     flex-grow: 1;
     @include input-reset;
+    transition: all $snap-transition;
     margin-left: 1.5rem;
   }
 }

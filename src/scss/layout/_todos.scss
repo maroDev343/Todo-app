@@ -6,7 +6,7 @@
   &__list {
     @include list-reset;
     box-shadow: $box-shadow;
-    transition: all $calm-transition;
+    transition: all $snap-transition;
 
     .todo-item {
       height: $todo-height;
@@ -38,6 +38,7 @@
         background: var(--todo-color);
         border: 1px solid var(--border-color);
         cursor: pointer;
+        transition: all $snap-transition;
         @include center(check-icon, 50%, 40%);
         .check-icon {
           opacity: 0;
@@ -83,7 +84,7 @@
         }
         .content {
           text-decoration: line-through;
-          color: $strike-color;
+          color: var(--strike-color);
         }
       }
     }
@@ -101,9 +102,9 @@
     transition: all $snap-transition;
 
     //? animations if there is todos (Js)
-    // transform: translateY(150px) skewX(15deg);
-    // opacity: 0;
-    // pointer-events: none;
+    transform: translateY(100px) skewX(25deg);
+    opacity: 0;
+    pointer-events: none;
 
     .clear-box {
       cursor: pointer;
@@ -120,11 +121,13 @@
       border-radius: $radius $radius;
       bottom: 5%;
       left: calc(50% - var(--width) / 2);
-      @include flex(row, center);
+      transition: transform $snap-transition;
       transition: all $snap-transition;
+      @include flex(row, center);
+
       @media (max-width: $break-1) {
-        bottom: -$float-margin;
         --width: 100%;
+        bottom: -$float-margin;
         box-shadow: $box-shadow;
       }
       .filtered {

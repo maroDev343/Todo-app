@@ -1,87 +1,179 @@
+import * as anims from './animations.js';
+import { CONSTANT } from './constant.js';
+
 // Variables
 const todoList = document.querySelector('.todo__list');
-const options = document.querySelector('.todo__options');
-const removeBtn = document.querySelectorAll('.remove-icon');
-const database = [];
-const duration = 450;
+const todoOptions = document.querySelector('.todo__options');
+const todoInput = document.querySelector('.todo__input-area');
+const inputIcon = document.querySelector('.todo__input-icon');
+const itemsLeft = todoOptions.querySelector('.items-left');
+const clearItemsBtn = todoOptions.querySelector('.clear-box');
+const filterItems = todoOptions.querySelectorAll('.filter-option');
+
+// On page load
+updateCount();
+resetInput();
+getTodos().forEach(todo => {
+  const todoElement = createTodoElement(todo.id, todo.content, todo.completed);
+  todoList.appendChild(todoElement);
+  anims.animationInTodo(todoElement);
+  anims.animationInOptions(todoOptions);
+});
 
 // Functions
-const createItem = content => {
-  const item = {
+function getTodos() {
+  return JSON.parse(localStorage.getItem('todo-list') || '[]');
+}
+function saveTodos(todos) {
+  localStorage.setItem('todo-list', JSON.stringify(todos));
+  updateCount();
+}
+function addTodo(content) {
+  resetInput();
+  const todos = getTodos();
+  const todoObject = {
+    id: Math.floor(Math.random() * CONSTANT.maxIdNum),
     content,
-    isCompleted: false,
+    completed: false,
   };
-  save(item);
-  renderItem(item);
-};
-const save = data => {
-  database.push(data);
-  localStorage.setItem('todo-list', JSON.stringify(database));
-};
-const read = () => {
-  const todos = localStorage.getItem('todo-list');
-  if (!todos || todos === '[]') return [{ content: 'Try me😊', isCompleted: true }];
-  return JSON.parse(todos);
-};
-const animationIn = item => {
-  setTimeout(() => {
-    item.style.transform = 'translateX(0px)';
-    item.style.opacity = 1;
-  }, duration);
-};
-const animationOut = item => {
-  item.style.transform = 'translateX(-250px)';
-  item.style.opacity = 0;
-};
-const renderItem = item => {
-  const todoHTML = `
+
+  anims.animationOutOptions(todoOptions);
+  const todoElement = createTodoElement(todoObject.id, todoObject.content, todoObject.completed);
+  todoList.appendChild(todoElement);
+  anims.animationInTodo(todoElement);
+  anims.animationInOptions(todoOptions);
+
+  todos.push(todoObject);
+  resetFilter();
+  saveTodos(todos);
+}
+function createTodoElement(id, content, completed) {
+  const todoHtml = `  
       <div class="check-box">
         <img src="/images/icon-check.svg" class="check-icon" />
       </div>
-      <h2 class="content">${item.content}</h2>
+      <h2 class="content">${capitalize(content)}</h2>
       <i class="fas fa-trash remove-icon"></i>
-    `;
+  `;
 
-  const newTodo = document.createElement('li');
-  newTodo.classList.add('todo-item');
+  const element = document.createElement('li');
+  element.classList.add('todo-item');
+  element.innerHTML = todoHtml;
 
-  const completedClass = item.isCompleted ? 'completed' : undefined;
-  if (completedClass !== undefined) newTodo.classList.add(completedClass);
-  newTodo.innerHTML = todoHTML;
+  completed ? element.classList.add('completed') : element.classList.remove('completed');
 
-  todoList.appendChild(newTodo);
-  animationIn(newTodo);
+  // EventListeners
+  // -Checkbox
+  element.querySelector('.check-box').addEventListener('click', () => {
+    const todos = getTodos();
+    const targetTodo = todos.find(todo => todo.id == id);
 
-  // RemoveIcon
-  newTodo.querySelector('.remove-icon').addEventListener('click', () => removeItem(item, newTodo));
-  // Checkbox
-  newTodo.querySelector('.check-box').addEventListener('click', () => {
-    console.log('ay');
-    // Todo
+    element.classList.toggle('completed');
+    targetTodo.completed = !targetTodo.completed;
+
+    resetFilter();
+    saveTodos(todos);
   });
-};
-const removeItem = (item, todo) => {
-  const index = database.findIndex(databaseItem => item.content == databaseItem.content);
-  database.splice(index, 1);
-  localStorage.setItem('todo-list', JSON.stringify(database));
 
-  animationOut(todo);
-  setTimeout(() => {
-    todo.parentNode.removeChild(todo);
-  }, duration);
-};
-const loadData = () => {
-  database.forEach(item => renderItem(item));
-};
-const databaseReset = () => {
-  database.push(...read());
-};
+  // -Remove icon
+  element.querySelector('.remove-icon').addEventListener('click', () => deleteTodo(id, element));
+
+  return element;
+}
+function deleteTodo(id, element) {
+  const todos = getTodos();
+
+  if (todos.length == 1) {
+    anims.animationOutOptions(todoOptions);
+  }
+
+  const filteredTodos = todos.filter(todo => todo.id != id);
+
+  saveTodos(filteredTodos);
+
+  anims.animationOutTodo(element);
+  setTimeout(() => todoList.removeChild(element), CONSTANT.duration * 1.5);
+}
+function updateCount() {
+  const unCompletedTodos = getTodos().filter(todo => !todo.completed);
+  itemsLeft.textContent = unCompletedTodos.length;
+}
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function resetInput() {
+  todoInput.value = '';
+  anims.animationOutCancelInput(inputIcon);
+  todoInput.focus();
+}
 
 // EventListeners
-document.addEventListener('DOMContentLoaded', databaseReset);
-document.addEventListener('DOMContentLoaded', loadData);
-
 document.addEventListener('keypress', e => {
-  const inputValue = document.querySelector('.todo__input-area').value;
-  if (e.key === 'Enter') createItem(inputValue);
+  if (e.key === 'Enter' && todoInput.value.length >= CONSTANT.minChars) addTodo(todoInput.value);
 });
+inputIcon.addEventListener('click', resetInput);
+todoInput.addEventListener('input', () =>
+  todoInput.value.length >= CONSTANT.minChars
+    ? anims.animationInCancelInput(inputIcon)
+    : anims.animationOutCancelInput(inputIcon)
+);
+clearItemsBtn.addEventListener('click', () => {
+  const todoItems = todoList.querySelectorAll('.todo-item');
+  localStorage.clear();
+
+  todoItems.forEach(todo => anims.animationOutTodo(todo));
+  setTimeout(() => todoItems.forEach(todo => todoList.removeChild(todo)), CONSTANT.duration * 1.5);
+
+  updateCount();
+  anims.animationOutOptions(todoOptions);
+});
+function resetFilter() {
+  filterItems.forEach(item => {
+    if (item.classList.contains('filtered')) {
+      item.click();
+    }
+  });
+}
+function colorFilterItem(clickedItem) {
+  filterItems.forEach(item => item.classList.remove('filtered'));
+  clickedItem.classList.add('filtered');
+}
+filterItems.forEach(item => {
+  item.addEventListener('click', () => {
+    colorFilterItem(item);
+    filterTodos(item);
+  });
+});
+function filterTodos(item) {
+  // All filter
+  if (item.textContent == 'All') {
+    const todoItems = todoList.querySelectorAll('.todo-item');
+    todoItems.forEach(todo => {
+      todo.style.display = 'flex';
+    });
+  }
+  // Active filter
+  if (item.textContent == 'Active') {
+    const todoItems = todoList.querySelectorAll('.todo-item');
+    todoItems.forEach(todo => {
+      todo.style.display = 'flex';
+    });
+    todoItems.forEach(todo => {
+      if (todo.classList.contains('completed')) {
+        todo.style.display = 'none';
+      }
+    });
+  }
+  // Completed filter
+  if (item.textContent == 'Completed') {
+    const todoItems = todoList.querySelectorAll('.todo-item');
+    todoItems.forEach(todo => {
+      todo.style.display = 'flex';
+    });
+    todoItems.forEach(todo => {
+      if (!todo.classList.contains('completed')) {
+        todo.style.display = 'none';
+      }
+    });
+  }
+}

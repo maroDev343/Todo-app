@@ -5,3 +5,6 @@
   box-sizing: border-box;
   user-select: none;
 }
+body {
+  transition: all $snap-transition;
+}
