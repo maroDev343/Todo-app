@@ -19,4 +19,4 @@ node_modules
 dist
 dist-ssr
 style-guide.md
-.vscode
+*.vscode
