@@ -1,10 +1,27 @@
-This project inspired by frontend mentors!
+# Todo-app
 
-A todo app with :\_
--System preference theme (that means it depends on your system default theme)
+- Created with Html Css(Sass) Javascript using _vite_ 🔥
 
--Toggle mode switcher
+# What you can do
 
--add / remove todos
+- theme depends on system preference (light, dark)
 
--database
+- switch theme
+
+- add todo
+
+- delete todo
+
+- mark todo as completed
+
+- filter todos (completed todos only or active todos only)
+
+- clear all todos
+
+- all database linked
+
+# Credit
+
+- Inspired by Frontend mentor
+- website: https://www.frontendmentor.io
+- challenge: https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW (if you want to try)
