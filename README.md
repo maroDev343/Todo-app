@@ -22,7 +22,7 @@
 
 # Live
 
-- https://todo-app-343.netlify.app
+- https://todoapp-343.netlify.app
 
 # Credit
 
