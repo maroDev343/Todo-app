@@ -15,8 +15,8 @@
 .DS_Store
 .prettierignore
 
+.vscode/settings.json
 node_modules
 dist
 dist-ssr
 style-guide.md
-*.vscode
