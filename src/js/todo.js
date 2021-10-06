@@ -50,7 +50,7 @@ function addTodo(content) {
 function createTodoElement(id, content, completed) {
   const todoHtml = `  
       <div class="check-box">
-        <img src="/images/icon-check.svg" class="check-icon" />
+        <i class="fas fa-check check-icon"></i>
       </div>
       <h2 class="content">${capitalize(content)}</h2>
       <i class="fas fa-trash remove-icon"></i>
