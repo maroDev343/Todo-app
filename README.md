@@ -28,4 +28,4 @@
 
 - Inspired by Frontend mentor
 - website: https://www.frontendmentor.io
-- challenge: https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW (if you want to try)
+- challenge: https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
