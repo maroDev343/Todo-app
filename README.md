@@ -4,6 +4,8 @@
 
 # What you can do
 
+- fully responsive and animated
+
 - theme depends on system preference (light, dark)
 
 - switch theme
