@@ -2,25 +2,25 @@
 
 - Created with Html Css(Sass) Javascript using _vite_ 🔥
 
+- Fully responsive and animated
+
 # What you can do
 
-- fully responsive and animated
+- Theme depends on system preference (light, dark)
 
-- theme depends on system preference (light, dark)
+- Switch theme
 
-- switch theme
+- Add todo
 
-- add todo
+- Delete todo
 
-- delete todo
+- Mark todo as completed
 
-- mark todo as completed
+- Filter todos (completed todos only or active todos only)
 
-- filter todos (completed todos only or active todos only)
+- Clear all todos
 
-- clear all todos
-
-- all database linked
+- All database linked
 
 # Live
 
@@ -29,5 +29,5 @@
 # Credit
 
 - Inspired by Frontend mentor
-- website: https://www.frontendmentor.io
-- challenge: https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
+- Website: https://www.frontendmentor.io
+- Challenge: https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
