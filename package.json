@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "npm run build && vite preview"
   },
   "devDependencies": {
     "sass": "^1.42.1",
