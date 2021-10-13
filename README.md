@@ -1,6 +1,6 @@
 # Todo-app
 
-- Created with Html Css(Sass) Javascript using _vite_ 🔥
+- Created with Html Css(Sass) Javascript using _vite_🔥
 
 - Fully responsive and animated
 
