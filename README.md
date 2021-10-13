@@ -24,7 +24,7 @@
 
 # Live
 
-- https://marodev343-todo-app.netlify.app
+- https://todo-app-eyh.pages.dev/
 
 # Credit
 
