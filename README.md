@@ -30,4 +30,3 @@
 
 - Inspired by Frontend mentor
 - Website: https://www.frontendmentor.io
-- Challenge: https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW
