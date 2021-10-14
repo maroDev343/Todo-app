@@ -24,7 +24,7 @@
 
 # Live
 
-- https://todo-app.pages.dev/
+- https://todo-app-eyh.pages.dev/
 
 # Credit
 
