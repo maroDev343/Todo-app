@@ -24,7 +24,7 @@
 
 # Live
 
-- https://todo-app-eyh.pages.dev/
+- https://marodev343-todo-app.pages.dev/
 
 # Credit
 
