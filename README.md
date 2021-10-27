@@ -1,26 +1,24 @@
 # Todo-app
 
-- Created with Html Css(Sass) Javascript using *vite*🔥
+- Created with Html Sass Javascript using *vite*🔥
 
 - Fully responsive and animated
 
-# What you can do
+- Additional stuff (hovers, animations, effects, etc...)
+
+- All database linked
 
 - Theme depends on system preference (light, dark)
 
 - Switch theme
 
-- Add todo
-
-- Delete todo
+- Add/delete todo
 
 - Mark todo as completed
 
-- Filter todos (completed todos only or active todos only)
+- Filter todos
 
 - Clear all todos
-
-- All database linked
 
 # Live
 
@@ -29,4 +27,5 @@
 # Credit
 
 - Inspired by Frontend mentor
+
 - Website: https://www.frontendmentor.io
