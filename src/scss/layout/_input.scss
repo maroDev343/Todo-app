@@ -51,5 +51,6 @@
     @include input-reset;
     transition: all $snap-transition;
     margin-left: 1.5rem;
+    background: transparent;
   }
 }
