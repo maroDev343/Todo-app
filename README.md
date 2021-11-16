@@ -22,7 +22,7 @@
 
 # Live
 
-- https://marodev343-todo-app.pages.dev/
+- https://marodevv-todo-app.pages.dev/
 
 # Credit
 
