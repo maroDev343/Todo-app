@@ -4,7 +4,6 @@
 
 .todo {
   &__list {
-    @include list-reset;
     // box-shadow: $box-shadow;
     transition: all $snap-transition;
 

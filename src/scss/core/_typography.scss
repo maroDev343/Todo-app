@@ -1,15 +1,30 @@
-@use '../abstracts/variables' as *;
 // Typography
+@use '../abstracts' as *;
+
+// # Basics
 html {
   font-size: $font__size;
+}
+body {
   font-family: $font__family;
 }
+
+// # Headings | paragraphs | etc..
 h1 {
   font-size: 2.5rem;
   color: white;
   text-transform: uppercase;
   letter-spacing: 1rem;
 }
+
+// # Icons
+i {
+  font-size: 0.675rem;
+  color: white;
+  background: transparent;
+}
+
+// # Specifics
 h2,
 input.todo__input-area {
   font-size: 1.25rem;
@@ -30,9 +45,4 @@ h4 {
 }
 input.todo__input-area::placeholder {
   color: var(--accent-color);
-}
-i {
-  font-size: 0.675rem;
-  color: white;
-  background: transparent;
 }

@@ -1,4 +1,5 @@
 // Variables
+
 // # Colors
 $bright-blue: hsl(220, 98%, 61%);
 $trash-color: rgba(235, 43, 43, 0.795);
@@ -20,7 +21,7 @@ $spacing-sml: 1rem;
 $float-margin: 4.5rem;
 $box-shadow: 0px 10px 35px -8px rgba(0, 0, 0, 0.55);
 
-// transitions
+// # Transitions
 $duration: 540ms;
 $snap-effect: cubic-bezier(0.61, -0.17, 0.03, 1.16);
 $snap-transition: $duration $snap-effect;
@@ -29,7 +30,7 @@ $snap-transition: $duration $snap-effect;
 $break-1: 800px;
 $break-2: 550px;
 
-// # Custom Prop
+// # Custom Props
 // Light theme
 :root {
   --bg-color: hsl(0, 0%, 95%);

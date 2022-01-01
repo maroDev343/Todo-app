@@ -1,10 +1,6 @@
-@use '../abstracts/variables' as *;
 // Mixins
+@use './variables' as *;
 
-@mixin list-reset {
-  list-style: none;
-  padding: 0;
-}
 @mixin input-reset {
   outline: none;
   border: none;
