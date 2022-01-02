@@ -15,6 +15,9 @@ h1 {
   color: white;
   text-transform: uppercase;
   letter-spacing: 1rem;
+  @include media($br-3) {
+    font-size: 2rem;
+  }
 }
 
 // # Icons
@@ -29,11 +32,11 @@ h2,
 input.todo__input-area {
   font-size: 1.25rem;
   color: var(--text-color);
-  font-weight: $fw-med;
-  @media (max-width: $break-1) {
+  font-weight: $fw__med;
+  @include media($br-1) {
     font-size: 1.125rem;
   }
-  @media (max-width: $break-2) {
+  @include media($br-3) {
     font-size: 1rem;
   }
 }
@@ -41,7 +44,7 @@ h4 {
   font-size: 0.9rem;
 }
 .todo__options {
-  font-weight: $fw-med;
+  font-weight: $fw__med;
 }
 input.todo__input-area::placeholder {
   color: var(--accent-color);

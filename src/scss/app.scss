@@ -9,9 +9,13 @@
 body {
   position: relative;
   background: var(--bg-color);
-  @include flex(row, center);
+  @include flex-row(center);
 }
 .wrapper {
-  width: $fixed-width;
-  padding: 5rem;
+  width: $fixed__width;
+  padding: 5rem 2rem;
+  transition: none;
+}
+html {
+  transition: none;
 }

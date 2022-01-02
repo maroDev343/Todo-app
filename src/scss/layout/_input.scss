@@ -3,37 +3,40 @@
 // Input
 
 .todo__input {
-  height: $todo-height;
+  height: $todo__height;
   background: var(--todo-color);
   border-radius: $radius;
-  padding: $spacing-sml;
-  box-shadow: $box-shadow;
+  padding: $spacing__sml;
+  box-shadow: $box__shadow;
   margin: {
     top: $spacing;
     bottom: $spacing / 2;
   }
-  transition: all $snap-transition;
-  @include flex;
-
+  @include media($br-3) {
+    margin: {
+      top: $spacing__sml;
+      // bottom: $spacing / 2;
+    }
+  }
+  @include flex-row(space-between, center);
   &-placeholder {
-    width: $circle-dims;
-    height: $circle-dims;
+    width: $circle__dims;
+    height: $circle__dims;
     border-radius: 50%;
     border: 1px solid var(--border-color);
-    margin-left: $spacing-sml;
+    margin-left: $spacing__sml;
     position: absolute;
-    transition: all $snap-transition;
   }
   &-icon {
-    $padding: $circle-dims / 3.5;
+    $padding: $circle__dims / 3.5;
     border-radius: 50%;
     padding: $padding / 1.425 $padding;
-    margin-left: $spacing-sml;
+    margin-left: $spacing__sml;
     color: white;
     border: 2px solid transparent;
-    background: $trash-color;
+    background: $trash__color;
     cursor: pointer;
-    transition: transform $snap-transition, opacity $snap-transition, color 0.25s, background 0.25s,
+    transition: transform $dur $snap__eff, opacity $dur $snap__eff, color 0.25s, background 0.25s,
       border-color 0.25s;
 
     //? animations on type (Js)
@@ -42,15 +45,14 @@
     pointer-events: none;
 
     &:hover {
-      color: $trash-color;
+      color: $trash__color;
       border-color: white;
     }
   }
   &-area {
     flex-grow: 1;
-    @include input-reset;
-    transition: all $snap-transition;
     margin-left: 1.5rem;
     background: transparent;
+    @include input-reset;
   }
 }

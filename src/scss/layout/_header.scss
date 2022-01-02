@@ -3,13 +3,14 @@
 // Header
 
 .header {
-  @include flex;
+  @include flex-row(space-between, center);
+
   .logo {
   }
 
   .mode__switcher {
-    width: $circle-dims;
-    height: $circle-dims;
+    width: $circle__dims;
+    height: $circle__dims;
     cursor: pointer;
     background-image: url('/images/icon-moon.svg');
     @include image-reset;
