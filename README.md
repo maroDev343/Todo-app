@@ -9,7 +9,7 @@
 
 # Live
 
-- https://marodevv-todo-app.pages.dev/
+- https://marodevv-todo-app.vercel.app
 
 # Credit
 
