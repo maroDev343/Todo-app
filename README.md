@@ -1,16 +1,17 @@
 # Todo-app
 
-- Fully responsive & animated
+## Tech used with *vite*🔥:
 
-- Tech used with *vite*🔥:
-  Html
-  Sass
-  Javascript
+> Frontend
 
-# Live
+-   Html
+-   Sass
+-   Javascript
 
-- https://marodevv-todo-app.vercel.app
+## Live
 
-# Credit
+> https://marodevv-todo-app.vercel.app
 
-- Inspired by Frontend mentor
+## Credit
+
+> Inspired by Frontend Mentor
