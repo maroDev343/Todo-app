@@ -10,7 +10,7 @@
 
 ## Live
 
-> https://marwanmodev-todo-app.vercel.app
+> https://marwanm-todo-app.vercel.app
 
 ## Credit
 
